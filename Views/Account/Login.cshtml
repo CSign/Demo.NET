@@ -1,0 +1,36 @@
+﻿@using CSign.Integration.Example.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "We are a digital company that uses CSign!";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="margin: 20px 0 10px 0">@ViewBag.Title</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet, felis vitae
+            pellentesque mattis, tortor massa cursus elit, at tempor nisl mi id quam. Duis suscipit placerat mi ac
+            euismod. Morbi turpis mauris, tempus et libero id, egestas auctor mauris. Nunc porttitor pellentesque
+            pretium. Sed nibh sem, egestas vitae erat non, auctor consectetur lorem. Pellentesque blandit orci ac
+            lorem porta efficitur. Morbi vel leo vel quam ultrices mollis. Cras cursus sed sem at malesuada. Donec
+            eget nisi non purus iaculis commodo nec at orci. Fusce quis purus ut arcu pretium suscipit ac lobortis
+            dolor.
+        </div>
+        <div class="col-md-6" id="loginForm">
+            <iframe src="@Model.Response.LoginUrl" height="320" style="width: 100%; overflow-y: hidden; border: none;"></iframe>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onmessage = function (e) {
+        alert(e);
+        alert("Back in Parent Frame. Redirect page back to start, or some other url which was originally requested before login in. After reload, check out the name of the logged in user up in the right corner( or in the collapsed 'burger' menu).");
+        window.location.href = "/";
+    };
+</script>
+

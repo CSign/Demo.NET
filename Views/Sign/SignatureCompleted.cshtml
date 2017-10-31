@@ -1,0 +1,16 @@
+﻿@using CSign.Integration.Example.Client
+@using CSign.Integration.Example.Models
+@model SignatureCompletedModel
+
+@{
+    Layout          = null;
+    ViewBag.Title   = "TransactionFinished";
+    Individual individualWhoSigned = Model.TransactionGetResponse.Transaction.Signatures[0].Individual;
+
+}
+<h2>Signature completed</h2>
+
+<p>Signed by: <span>@individualWhoSigned.FirstName</span>&nbsp;<span>@individualWhoSigned.LastName</span></p>
+
+<a href="/Sign/File/?sessionGuid=@Model.SessionId&name=SignatureReceipt.pdf">SignatureReceipt.pdf</a>
+

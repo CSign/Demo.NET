@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://www.csign.se/integration/data/V1" elementFormDefault="qualified" targetNamespace="http://www.csign.se/integration/data/V1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CSign.Services.Integration.Entities" />
+  <xs:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="MetaDataGetDefinitionRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetaData" />
+      <xs:element name="OwnerRegistrationNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CSign.Services.Integration.Entities" minOccurs="0" name="Type" type="q1:MetaDataDefinition.DefinitionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetaDataGetDefinitionRequest" nillable="true" type="tns:MetaDataGetDefinitionRequest" />
+  <xs:complexType name="AuthorizationData">
+    <xs:sequence>
+      <xs:element name="IntegrationId" type="xs:int" />
+      <xs:element name="IntegrationKey" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+  <xs:complexType name="ArrayOfMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetaData" nillable="true" type="tns:MetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetaData" nillable="true" type="tns:ArrayOfMetaData" />
+  <xs:complexType name="MetaData">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetaData" nillable="true" type="tns:MetaData" />
+  <xs:complexType name="MetaDataGetDefinitionResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="MetaDataDefinitions" nillable="true" type="tns:ArrayOfMetaDataDefinition" />
+      <xs:element name="OwnerRegistrationNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CSign.Services.Integration.Entities" name="Type" type="q2:MetaDataDefinition.DefinitionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetaDataGetDefinitionResponse" nillable="true" type="tns:MetaDataGetDefinitionResponse" />
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage" />
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="ArrayOfMetaDataDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetaDataDefinition" nillable="true" type="tns:MetaDataDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetaDataDefinition" nillable="true" type="tns:ArrayOfMetaDataDefinition" />
+  <xs:complexType name="MetaDataDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Deprecated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetaDataDefinition" nillable="true" type="tns:MetaDataDefinition" />
+  <xs:complexType name="TransactionGetRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionGetRequest" nillable="true" type="tns:TransactionGetRequest" />
+  <xs:complexType name="TransactionGetResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionGetResponse" nillable="true" type="tns:TransactionGetResponse" />
+  <xs:complexType name="Transaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Files" nillable="true" type="tns:ArrayOfVirtualFile" />
+      <xs:element minOccurs="0" name="Finalized" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetaData" />
+      <xs:element name="OwnerRegistrationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcurementId" type="xs:int" />
+      <xs:element minOccurs="0" name="Signatures" nillable="true" type="tns:ArrayOfSignature" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+  <xs:complexType name="ArrayOfVirtualFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VirtualFile" nillable="true" type="tns:VirtualFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVirtualFile" nillable="true" type="tns:ArrayOfVirtualFile" />
+  <xs:complexType name="VirtualFile">
+    <xs:sequence>
+      <xs:element name="FileName" nillable="true" type="xs:string" />
+      <xs:element name="FileSize" type="xs:int" />
+      <xs:element name="OriginalLocation" nillable="true" type="xs:string" />
+      <xs:element name="SourceHash" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VirtualFile" nillable="true" type="tns:VirtualFile" />
+  <xs:complexType name="ArrayOfSignature">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Signature" nillable="true" type="tns:Signature" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignature" nillable="true" type="tns:ArrayOfSignature" />
+  <xs:complexType name="Signature">
+    <xs:sequence>
+      <xs:element name="Individual" nillable="true" type="tns:Individual" />
+      <xs:element name="LegalEntity" nillable="true" type="tns:LegalEntity" />
+      <xs:element name="Rights" nillable="true" type="tns:ArrayOfRight" />
+      <xs:element name="TimeStamp" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Signature" nillable="true" type="tns:Signature" />
+  <xs:complexType name="Individual">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Individual" nillable="true" type="tns:Individual" />
+  <xs:complexType name="LegalEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DUNSNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InformationProviderData" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LegalEntity" nillable="true" type="tns:LegalEntity" />
+  <xs:complexType name="ArrayOfRight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Right" nillable="true" type="tns:Right" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRight" nillable="true" type="tns:ArrayOfRight" />
+  <xs:complexType name="Right">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Information" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Right" nillable="true" type="tns:Right" />
+  <xs:complexType name="TransactionGetExtendedRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionGetExtendedRequest" nillable="true" type="tns:TransactionGetExtendedRequest" />
+  <xs:complexType name="TransactionGetExtendedResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Transaction" nillable="true" type="tns:TransactionExtended" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionGetExtendedResponse" nillable="true" type="tns:TransactionGetExtendedResponse" />
+  <xs:complexType name="TransactionExtended">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Files" nillable="true" type="tns:ArrayOfVirtualFile" />
+      <xs:element minOccurs="0" name="Finalized" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetaData" />
+      <xs:element name="OwnerRegistrationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcurementId" type="xs:int" />
+      <xs:element minOccurs="0" name="Signatures" nillable="true" type="tns:ArrayOfSignatureExtended" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionExtended" nillable="true" type="tns:TransactionExtended" />
+  <xs:complexType name="ArrayOfSignatureExtended">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignatureExtended" nillable="true" type="tns:SignatureExtended" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignatureExtended" nillable="true" type="tns:ArrayOfSignatureExtended" />
+  <xs:complexType name="SignatureExtended">
+    <xs:sequence>
+      <xs:element name="Individual" nillable="true" type="tns:Individual" />
+      <xs:element name="LegalEntity" nillable="true" type="tns:LegalEntity" />
+      <xs:element name="Rights" nillable="true" type="tns:ArrayOfRight" />
+      <xs:element minOccurs="0" name="SignatureData" nillable="true" type="xs:string" />
+      <xs:element name="TimeStamp" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignatureExtended" nillable="true" type="tns:SignatureExtended" />
+  <xs:complexType name="TransactionDeleteRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionDeleteRequest" nillable="true" type="tns:TransactionDeleteRequest" />
+  <xs:complexType name="TransactionDeleteResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionDeleteResponse" nillable="true" type="tns:TransactionDeleteResponse" />
+  <xs:complexType name="TransactionFinalizeRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionFinalizeRequest" nillable="true" type="tns:TransactionFinalizeRequest" />
+  <xs:complexType name="TransactionFinalizeResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionFinalizeResponse" nillable="true" type="tns:TransactionFinalizeResponse" />
+  <xs:complexType name="ScenarioLoginRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="LoginUser" nillable="true" type="tns:LoginUser" />
+      <xs:element minOccurs="0" name="RetUrl" nillable="true" type="xs:string" />
+      <xs:element name="Scenario" type="xs:int" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScenarioLoginRequest" nillable="true" type="tns:ScenarioLoginRequest" />
+  <xs:complexType name="LoginUser">
+    <xs:sequence>
+      <xs:element name="IndividualParameter" nillable="true" type="tns:IndividualParameter" />
+      <xs:element name="LegalEntityParameter" nillable="true" type="tns:LegalEntityParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginUser" nillable="true" type="tns:LoginUser" />
+  <xs:complexType name="IndividualParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndividualParameter" nillable="true" type="tns:IndividualParameter" />
+  <xs:complexType name="LegalEntityParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DUNSNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LegalEntityParameter" nillable="true" type="tns:LegalEntityParameter" />
+  <xs:complexType name="ScenarioLoginResponse">
+    <xs:sequence>
+      <xs:element name="LoginUrl" nillable="true" type="xs:string" />
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScenarioLoginResponse" nillable="true" type="tns:ScenarioLoginResponse" />
+  <xs:complexType name="OrganizationDataGetRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="LegalEntityParameter" nillable="true" type="tns:LegalEntityParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationDataGetRequest" nillable="true" type="tns:OrganizationDataGetRequest" />
+  <xs:complexType name="OrganizationDataGetResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LegalEntity" nillable="true" type="tns:LegalEntity" />
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationDataGetResponse" nillable="true" type="tns:OrganizationDataGetResponse" />
+  <xs:complexType name="ConsumerDataGetRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="ConsumerParameter" nillable="true" type="tns:ConsumerParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsumerDataGetRequest" nillable="true" type="tns:ConsumerDataGetRequest" />
+  <xs:complexType name="ConsumerParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsumerParameter" nillable="true" type="tns:ConsumerParameter" />
+  <xs:complexType name="ConsumerDataGetResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Consumer" nillable="true" type="tns:Consumer" />
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsumerDataGetResponse" nillable="true" type="tns:ConsumerDataGetResponse" />
+  <xs:complexType name="Consumer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BirthDateDDMMYY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BoardMember" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoAdress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsumerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternalReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegistrationAddressCoAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegistrationAddressCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegistrationAddressPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegistrationAddressPostalAddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegistrationAddressPostalAddressLine2Cont" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegistrationAddressTown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalAdressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalAdressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RealEstateDataAvailableSeparately" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressCoAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressForeignCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressForeignCountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressForeignPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressForeignTown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressNationalPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressNationalTown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressPostalAddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeparateAddressPostalAddressLine2Cont" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SocialSecurityNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoleProprietor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceOfDatabase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxationYearCCYY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Town" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Consumer" nillable="true" type="tns:Consumer" />
+  <xs:complexType name="ScenarioLoginCallbackGetRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScenarioLoginCallbackGetRequest" nillable="true" type="tns:ScenarioLoginCallbackGetRequest" />
+  <xs:complexType name="ScenarioLoginCallbackGetResponse">
+    <xs:sequence>
+      <xs:element name="Callback" nillable="true" type="tns:ScenarioLoginCallback" />
+      <xs:element name="Message" nillable="true" type="tns:Message" />
+      <xs:element name="TimeStamp" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScenarioLoginCallbackGetResponse" nillable="true" type="tns:ScenarioLoginCallbackGetResponse" />
+  <xs:complexType name="ScenarioLoginCallback">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdentifiedUser" nillable="true" type="tns:IdentifiedUser" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element minOccurs="0" name="Scenario" type="xs:int" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScenarioLoginCallback" nillable="true" type="tns:ScenarioLoginCallback" />
+  <xs:complexType name="IdentifiedUser">
+    <xs:sequence>
+      <xs:element name="Individual" nillable="true" type="tns:Individual" />
+      <xs:element name="LegalEntity" nillable="true" type="tns:LegalEntity" />
+      <xs:element name="Rights" nillable="true" type="tns:ArrayOfRight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdentifiedUser" nillable="true" type="tns:IdentifiedUser" />
+  <xs:complexType name="TransactionAddSignatureCallbackGetRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionAddSignatureCallbackGetRequest" nillable="true" type="tns:TransactionAddSignatureCallbackGetRequest" />
+  <xs:complexType name="TransactionAddSignatureCallbackGetResponse">
+    <xs:sequence>
+      <xs:element name="Callback" nillable="true" type="tns:TransactionAddSignatureCallback" />
+      <xs:element name="Message" nillable="true" type="tns:Message" />
+      <xs:element name="TimeStamp" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionAddSignatureCallbackGetResponse" nillable="true" type="tns:TransactionAddSignatureCallbackGetResponse" />
+  <xs:complexType name="TransactionAddSignatureCallback">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentSignature" nillable="true" type="tns:SignatureExtended" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionAddSignatureCallback" nillable="true" type="tns:TransactionAddSignatureCallback" />
+  <xs:complexType name="LoginRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="CultureId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginRequest" nillable="true" type="tns:LoginRequest" />
+  <xs:complexType name="LoginResponse">
+    <xs:sequence>
+      <xs:element name="LoginUrl" nillable="true" type="xs:string" />
+      <xs:element name="SessionId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginResponse" nillable="true" type="tns:LoginResponse" />
+  <xs:complexType name="RegisterDocumentSigningRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DocumentSigning" nillable="true" type="tns:SignatureObject" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterDocumentSigningRequest" nillable="true" type="tns:RegisterDocumentSigningRequest" />
+  <xs:complexType name="SignatureObject">
+    <xs:sequence>
+      <xs:element name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+      <xs:element name="Title" nillable="true" type="xs:string" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignatureObject" nillable="true" type="tns:SignatureObject" />
+  <xs:complexType name="ArrayOfFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="File" nillable="true" type="tns:File" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFile" nillable="true" type="tns:ArrayOfFile" />
+  <xs:complexType name="File">
+    <xs:sequence>
+      <xs:element name="FileName" nillable="true" type="xs:string" />
+      <xs:element name="Size" type="xs:int" />
+      <xs:element name="SourceHash" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File" nillable="true" type="tns:File" />
+  <xs:complexType name="ArrayOfRecipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recipient" nillable="true" type="tns:Recipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecipient" nillable="true" type="tns:ArrayOfRecipient" />
+  <xs:complexType name="Recipient">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Recipient" nillable="true" type="tns:Recipient" />
+  <xs:complexType name="RegisterDocumentSigningResponse">
+    <xs:sequence>
+      <xs:element name="DocumentSigning" nillable="true" type="tns:SignatureObject" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterDocumentSigningResponse" nillable="true" type="tns:RegisterDocumentSigningResponse" />
+  <xs:complexType name="GetDocumentSigningRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DocumentSigningId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocumentSigningRequest" nillable="true" type="tns:GetDocumentSigningRequest" />
+  <xs:complexType name="GetDocumentSigningResponse">
+    <xs:sequence>
+      <xs:element name="DocumentSigning" nillable="true" type="tns:SignatureObject" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Receipt" nillable="true" type="tns:Receipt" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipientSigned" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocumentSigningResponse" nillable="true" type="tns:GetDocumentSigningResponse" />
+  <xs:complexType name="Receipt">
+    <xs:sequence>
+      <xs:element name="CreatedDate" type="xs:dateTime" />
+      <xs:element name="Data" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentSigningId" type="xs:int" />
+      <xs:element name="FilePackageId" nillable="true" type="xs:string" />
+      <xs:element name="ReceiptAccessLists" nillable="true" type="tns:ArrayOfReceiptAccess" />
+      <xs:element name="ReceiptOwners" nillable="true" type="tns:ArrayOfReceiptOwner" />
+      <xs:element name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Receipt" nillable="true" type="tns:Receipt" />
+  <xs:complexType name="ArrayOfReceiptAccess">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiptAccess" nillable="true" type="tns:ReceiptAccess" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReceiptAccess" nillable="true" type="tns:ArrayOfReceiptAccess" />
+  <xs:complexType name="ReceiptAccess">
+    <xs:sequence>
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceiptAccess" nillable="true" type="tns:ReceiptAccess" />
+  <xs:complexType name="ArrayOfReceiptOwner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiptOwner" nillable="true" type="tns:ReceiptOwner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReceiptOwner" nillable="true" type="tns:ArrayOfReceiptOwner" />
+  <xs:complexType name="ReceiptOwner">
+    <xs:sequence>
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceiptOwner" nillable="true" type="tns:ReceiptOwner" />
+  <xs:complexType name="ArrayOfRecipientSigned">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipientSigned" nillable="true" type="tns:RecipientSigned" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecipientSigned" nillable="true" type="tns:ArrayOfRecipientSigned" />
+  <xs:complexType name="RecipientSigned">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+      <xs:element name="SignDate" nillable="true" type="xs:dateTime" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientSigned" nillable="true" type="tns:RecipientSigned" />
+  <xs:complexType name="UpdateDocumentSigningRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DocumentSigning" nillable="true" type="tns:SignatureObject" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateDocumentSigningRequest" nillable="true" type="tns:UpdateDocumentSigningRequest" />
+  <xs:complexType name="UpdateDocumentSigningResponse">
+    <xs:sequence>
+      <xs:element name="DocumentSigning" nillable="true" type="tns:SignatureObject" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateDocumentSigningResponse" nillable="true" type="tns:UpdateDocumentSigningResponse" />
+  <xs:complexType name="DeleteDocumentSigningRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DocumentSigningId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteDocumentSigningRequest" nillable="true" type="tns:DeleteDocumentSigningRequest" />
+  <xs:complexType name="DeleteDocumentSigningResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DeleteDocumentSigningResponse" nillable="true" type="tns:DeleteDocumentSigningResponse" />
+  <xs:complexType name="SignDocumentSigningRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DocumentSigningId" type="xs:int" />
+      <xs:element name="RecipientId" type="xs:int" />
+      <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignDocumentSigningRequest" nillable="true" type="tns:SignDocumentSigningRequest" />
+  <xs:complexType name="UserInterface">
+    <xs:sequence>
+      <xs:element name="CultureId" nillable="true" type="xs:string" />
+      <xs:element name="ShowFileNames" type="xs:boolean" />
+      <xs:element name="ShowPerformedSignatures" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+  <xs:complexType name="SignDocumentSigningResponse">
+    <xs:sequence>
+      <xs:element name="SignatureURL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignDocumentSigningResponse" nillable="true" type="tns:SignDocumentSigningResponse" />
+  <xs:complexType name="SignDocumentSigningExtendedRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DocumentSigningId" type="xs:int" />
+      <xs:element minOccurs="0" name="ExtraFields" nillable="true" type="tns:ExtraFields" />
+      <xs:element name="RecipientId" type="xs:int" />
+      <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignDocumentSigningExtendedRequest" nillable="true" type="tns:SignDocumentSigningExtendedRequest" />
+  <xs:complexType name="ExtraFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Partner1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner3" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtraFields" nillable="true" type="tns:ExtraFields" />
+  <xs:complexType name="SignDocumentSigningExtendedResponse">
+    <xs:sequence>
+      <xs:element name="SignatureURL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignDocumentSigningExtendedResponse" nillable="true" type="tns:SignDocumentSigningExtendedResponse" />
+  <xs:complexType name="FindUserRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="Organization" nillable="true" type="tns:Organization" />
+      <xs:element name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindUserRequest" nillable="true" type="tns:FindUserRequest" />
+  <xs:complexType name="Organization">
+    <xs:sequence>
+      <xs:element name="DUNSNumber" nillable="true" type="xs:string" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="RegistrationNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Organization" nillable="true" type="tns:Organization" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element name="Email" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirstName" nillable="true" type="xs:string" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="LastName" nillable="true" type="xs:string" />
+      <xs:element name="SSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="FindUserResponse">
+    <xs:sequence>
+      <xs:element name="FindUserDatas" nillable="true" type="tns:ArrayOfFindUserData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindUserResponse" nillable="true" type="tns:FindUserResponse" />
+  <xs:complexType name="ArrayOfFindUserData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FindUserData" nillable="true" type="tns:FindUserData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFindUserData" nillable="true" type="tns:ArrayOfFindUserData" />
+  <xs:complexType name="FindUserData">
+    <xs:sequence>
+      <xs:element name="Organization" nillable="true" type="tns:Organization" />
+      <xs:element name="User" nillable="true" type="tns:User" />
+      <xs:element name="UserRights" nillable="true" type="tns:ArrayOfUserRight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindUserData" nillable="true" type="tns:FindUserData" />
+  <xs:complexType name="ArrayOfUserRight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRight" nillable="true" type="tns:UserRight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRight" nillable="true" type="tns:ArrayOfUserRight" />
+  <xs:complexType name="UserRight">
+    <xs:sequence>
+      <xs:element name="Deleted" type="xs:boolean" />
+      <xs:element name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+      <xs:element name="OriginalReference" nillable="true" type="xs:string" />
+      <xs:element name="RightInformation" nillable="true" type="xs:string" />
+      <xs:element name="StartDate" type="xs:dateTime" />
+      <xs:element name="SystemFunctionValue" type="xs:int" />
+      <xs:element name="UserId" type="xs:int" />
+      <xs:element name="UserRightTypeId" type="xs:int" />
+      <xs:element name="Verified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRight" nillable="true" type="tns:UserRight" />
+  <xs:complexType name="FindOrganizationRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="DUNSNumber" nillable="true" type="xs:string" />
+      <xs:element name="RegistrationNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindOrganizationRequest" nillable="true" type="tns:FindOrganizationRequest" />
+  <xs:complexType name="FindOrganizationResponse">
+    <xs:sequence>
+      <xs:element name="Organizations" nillable="true" type="tns:ArrayOfOrganization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindOrganizationResponse" nillable="true" type="tns:FindOrganizationResponse" />
+  <xs:complexType name="ArrayOfOrganization">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Organization" nillable="true" type="tns:Organization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganization" nillable="true" type="tns:ArrayOfOrganization" />
+  <xs:complexType name="RegisterProcurementRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="Procurement" nillable="true" type="tns:Procurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterProcurementRequest" nillable="true" type="tns:RegisterProcurementRequest" />
+  <xs:complexType name="Procurement">
+    <xs:sequence>
+      <xs:element name="Description" nillable="true" type="xs:string" />
+      <xs:element name="EstimatedTenderCount" type="xs:int" />
+      <xs:element name="ExpiryDate" type="xs:dateTime" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="OrganizationId" type="xs:int" />
+      <xs:element name="OrganizationUnitId" type="xs:int" />
+      <xs:element name="PublishDate" type="xs:dateTime" />
+      <xs:element name="RecipientList" nillable="true" type="xs:string" />
+      <xs:element name="TimeLock" type="xs:dateTime" />
+      <xs:element name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Procurement" nillable="true" type="tns:Procurement" />
+  <xs:complexType name="RegisterProcurementResponse">
+    <xs:sequence>
+      <xs:element name="Procurement" nillable="true" type="tns:Procurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterProcurementResponse" nillable="true" type="tns:RegisterProcurementResponse" />
+  <xs:complexType name="UpdateProcurementRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="Procurement" nillable="true" type="tns:Procurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateProcurementRequest" nillable="true" type="tns:UpdateProcurementRequest" />
+  <xs:complexType name="UpdateProcurementResponse">
+    <xs:sequence>
+      <xs:element name="Procurement" nillable="true" type="tns:Procurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateProcurementResponse" nillable="true" type="tns:UpdateProcurementResponse" />
+  <xs:complexType name="DeleteProcurementRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="ProcurementId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteProcurementRequest" nillable="true" type="tns:DeleteProcurementRequest" />
+  <xs:complexType name="DeleteProcurementResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DeleteProcurementResponse" nillable="true" type="tns:DeleteProcurementResponse" />
+  <xs:complexType name="GetProcurementRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="ProcurementId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetProcurementRequest" nillable="true" type="tns:GetProcurementRequest" />
+  <xs:complexType name="GetProcurementResponse">
+    <xs:sequence>
+      <xs:element name="Procurement" nillable="true" type="tns:Procurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetProcurementResponse" nillable="true" type="tns:GetProcurementResponse" />
+  <xs:complexType name="RegisterTenderRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="ProcurementId" type="xs:int" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+      <xs:element name="Tender" nillable="true" type="tns:SignatureObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterTenderRequest" nillable="true" type="tns:RegisterTenderRequest" />
+  <xs:complexType name="RegisterTenderResponse">
+    <xs:sequence>
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+      <xs:element name="Tender" nillable="true" type="tns:SignatureObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterTenderResponse" nillable="true" type="tns:RegisterTenderResponse" />
+  <xs:complexType name="UpdateTenderRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+      <xs:element name="Tender" nillable="true" type="tns:SignatureObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateTenderRequest" nillable="true" type="tns:UpdateTenderRequest" />
+  <xs:complexType name="UpdateTenderResponse">
+    <xs:sequence>
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipient" />
+      <xs:element name="Tender" nillable="true" type="tns:SignatureObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateTenderResponse" nillable="true" type="tns:UpdateTenderResponse" />
+  <xs:complexType name="DeleteTenderRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TenderId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteTenderRequest" nillable="true" type="tns:DeleteTenderRequest" />
+  <xs:complexType name="DeleteTenderResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DeleteTenderResponse" nillable="true" type="tns:DeleteTenderResponse" />
+  <xs:complexType name="SignTenderRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="ProcurementId" type="xs:int" />
+      <xs:element name="TenderId" type="xs:int" />
+      <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignTenderRequest" nillable="true" type="tns:SignTenderRequest" />
+  <xs:complexType name="SignTenderResponse">
+    <xs:sequence>
+      <xs:element name="SignTenderUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignTenderResponse" nillable="true" type="tns:SignTenderResponse" />
+  <xs:complexType name="SignTenderExtendedRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="ExtraFields" nillable="true" type="tns:ExtraFields" />
+      <xs:element name="ProcurementId" type="xs:int" />
+      <xs:element name="TenderId" type="xs:int" />
+      <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignTenderExtendedRequest" nillable="true" type="tns:SignTenderExtendedRequest" />
+  <xs:complexType name="SignTenderExtendedResponse">
+    <xs:sequence>
+      <xs:element name="SignTenderUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignTenderExtendedResponse" nillable="true" type="tns:SignTenderExtendedResponse" />
+  <xs:complexType name="GetTendersRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TenderId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTendersRequest" nillable="true" type="tns:GetTendersRequest" />
+  <xs:complexType name="GetTendersResponse">
+    <xs:sequence>
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element name="Receipt" nillable="true" type="tns:Receipt" />
+      <xs:element name="Recipients" nillable="true" type="tns:ArrayOfRecipientSigned" />
+      <xs:element name="Tender" nillable="true" type="tns:SignatureObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTendersResponse" nillable="true" type="tns:GetTendersResponse" />
+  <xs:complexType name="OpenTendersRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="ProcurementId" type="xs:int" />
+      <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenTendersRequest" nillable="true" type="tns:OpenTendersRequest" />
+  <xs:complexType name="OpenTendersResponse">
+    <xs:sequence>
+      <xs:element name="OpenTendersUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenTendersResponse" nillable="true" type="tns:OpenTendersResponse" />
+  <xs:complexType name="OpenTendersExtendedRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="ExtraFields" nillable="true" type="tns:ExtraFields" />
+      <xs:element name="ProcurementId" type="xs:int" />
+      <xs:element name="UserInterface" nillable="true" type="tns:UserInterface" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenTendersExtendedRequest" nillable="true" type="tns:OpenTendersExtendedRequest" />
+  <xs:complexType name="OpenTendersExtendedResponse">
+    <xs:sequence>
+      <xs:element name="OpenTendersUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenTendersExtendedResponse" nillable="true" type="tns:OpenTendersExtendedResponse" />
+  <xs:complexType name="RegisterUserRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CSign.Services.Integration.Entities" name="IdentificationMethod" type="q3:IdentityMethodClient" />
+      <xs:element name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterUserRequest" nillable="true" type="tns:RegisterUserRequest" />
+  <xs:complexType name="RegisterUserResponse">
+    <xs:sequence>
+      <xs:element name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterUserResponse" nillable="true" type="tns:RegisterUserResponse" />
+  <xs:complexType name="GetReceiptRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="GetPdf" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GetReceipt" type="xs:boolean" />
+      <xs:element name="SignatureObjectId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetReceiptRequest" nillable="true" type="tns:GetReceiptRequest" />
+  <xs:complexType name="GetReceiptResponse">
+    <xs:sequence>
+      <xs:element name="Pdf" nillable="true" type="xs:base64Binary" />
+      <xs:element name="Receipt" nillable="true" type="tns:Receipt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetReceiptResponse" nillable="true" type="tns:GetReceiptResponse" />
+  <xs:complexType name="GetPDFReceiptRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPDFReceiptRequest" nillable="true" type="tns:GetPDFReceiptRequest" />
+  <xs:complexType name="GetPDFResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Pdf" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPDFResponse" nillable="true" type="tns:GetPDFResponse" />
+  <xs:complexType name="TransactionStartRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Files" nillable="true" type="tns:ArrayOfVirtualFile" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetaData" />
+      <xs:element name="OwnerRegistrationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcurementId" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionStartRequest" nillable="true" type="tns:TransactionStartRequest" />
+  <xs:complexType name="TransactionStartResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionStartResponse" nillable="true" type="tns:TransactionStartResponse" />
+  <xs:complexType name="TransactionAddSignatureRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="RetUrl" nillable="true" type="xs:string" />
+      <xs:element name="Scenario" type="xs:int" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Settings" nillable="true" type="tns:AddSignatureSettings" />
+      <xs:element name="SignatureUser" nillable="true" type="tns:SignatureUser" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionAddSignatureRequest" nillable="true" type="tns:TransactionAddSignatureRequest" />
+  <xs:complexType name="AddSignatureSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ShowFileList" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddSignatureSettings" nillable="true" type="tns:AddSignatureSettings" />
+  <xs:complexType name="SignatureUser">
+    <xs:sequence>
+      <xs:element name="IndividualParameter" nillable="true" type="tns:IndividualParameter" />
+      <xs:element minOccurs="0" name="LegalEntityParameter" nillable="true" type="tns:LegalEntityParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignatureUser" nillable="true" type="tns:SignatureUser" />
+  <xs:complexType name="TransactionAddSignatureResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+      <xs:element name="SignatureURL" nillable="true" type="xs:string" />
+      <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionAddSignatureResponse" nillable="true" type="tns:TransactionAddSignatureResponse" />
+  <xs:complexType name="TransactionSetMetaDataRequest">
+    <xs:sequence>
+      <xs:element name="AuthorizationData" nillable="true" type="tns:AuthorizationData" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetaData" />
+      <xs:element name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionSetMetaDataRequest" nillable="true" type="tns:TransactionSetMetaDataRequest" />
+  <xs:complexType name="TransactionSetMetaDataResponse">
+    <xs:sequence>
+      <xs:element name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionSetMetaDataResponse" nillable="true" type="tns:TransactionSetMetaDataResponse" />
+</xs:schema>

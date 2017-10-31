@@ -1,0 +1,21 @@
+﻿
+@{
+	Layout = null;
+}
+<div class="row">
+	<div class="col-md-12">
+		Log in completed
+	</div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+	function notifyParentAboutLogin() {
+		alert("This message is sent from a page loaded in the IFrame previously containg the CSign login control. We are now notifying the parent frame that login is completed.");
+		var message = {
+			name:   'loginResult'
+		};
+		window.parent.window.postMessage(message, '*');
+        
+	};
+	$(document).ready(notifyParentAboutLogin);
+</script>

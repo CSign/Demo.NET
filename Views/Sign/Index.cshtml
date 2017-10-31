@@ -1,0 +1,27 @@
+﻿
+@model CSign.Integration.Example.Models.SignModel
+
+<h2>Sign documents</h2>
+
+@using (Html.BeginForm("Upload", "Sign", FormMethod.Post,
+                      new { enctype = "multipart/form-data" }))
+
+{
+    @Html.LabelFor(m => m.Title)
+    <div>@Html.TextBoxFor(m => m.Title, new { required = "required" })</div>
+
+    @Html.LabelFor(m => m.Description)
+    <div>@Html.TextAreaFor(m => m.Description,new { required = "required" })</div>
+
+    <input type="file" name="FileUpload1" required="required"/>
+    <input type="file" name="FileUpload2" />
+
+    <input type = "submit" value = "Upload" class="btn" />
+
+    <div class="err">
+
+        @Html.ValidationSummary()
+
+    </div>
+}
+

@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.csign.se/integration/service/V1" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IntegrationService" targetNamespace="http://www.csign.se/integration/service/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.csign.se/integration/service/V1/Imports">
+      <xsd:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd0" namespace="http://www.csign.se/integration/service/V1" />
+      <xsd:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd2" namespace="http://www.csign.se/integration/data/V1" />
+      <xsd:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CSign.Services.Integration.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIntegrationService_MetaDataGetDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetaDataGetDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_MetaDataGetDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetaDataGetDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionGet" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionGetExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionGetExtended" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionGetExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionGetExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionDelete" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionFinalize_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionFinalize" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionFinalize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionFinalizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_ScenarioLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ScenarioLogin" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_ScenarioLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScenarioLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_OrganizationDataGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrganizationDataGet" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_OrganizationDataGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrganizationDataGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_ConsumerDataGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsumerDataGet" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_ConsumerDataGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsumerDataGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_ScenarioLoginCallbackGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:ScenarioLoginCallbackGet" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_ScenarioLoginCallbackGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScenarioLoginCallbackGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionAddSignatureCallbackGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionAddSignatureCallbackGet" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionAddSignatureCallbackGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionAddSignatureCallbackGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_LoginCitizen_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginCitizen" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_LoginCitizen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginCitizenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterDocumentSigning_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDocumentSigning" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterDocumentSigning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDocumentSigningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetDocumentSigning_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentSigning" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetDocumentSigning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentSigningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_UpdateDocumentSigning_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDocumentSigning" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_UpdateDocumentSigning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDocumentSigningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_DeleteDocumentSigning_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentSigning" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_DeleteDocumentSigning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentSigningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignDocumentSigning_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentSigning" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignDocumentSigning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentSigningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignDocumentSigningExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentSigningExtended" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignDocumentSigningExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentSigningExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_FindUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUser" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_FindUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_FindOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_FindOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterProcurement_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterProcurement" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterProcurement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterProcurementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_UpdateProcurement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcurement" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_UpdateProcurement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcurementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_DeleteProcurement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcurement" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_DeleteProcurement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcurementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetProcurement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcurement" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetProcurement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcurementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterTender_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterTender" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterTender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterTenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_UpdateTender_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTender" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_UpdateTender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_DeleteTender_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTender" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_DeleteTender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignTender_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignTender" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignTender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignTenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignTenderExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignTenderExtended" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_SignTenderExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignTenderExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetTender_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTender" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetTender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_OpenTenders_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTenders" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_OpenTenders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTendersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_OpenTendersExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTendersExtended" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_OpenTendersExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTendersExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetPDFReceipt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPDFReceipt" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_GetPDFReceipt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPDFReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_PDFGetReceipt_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDFGetReceipt" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_PDFGetReceipt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDFGetReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionStart_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionStart" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionStart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionStartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionAddSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionAddSignature" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionAddSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionAddSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionSetMetaData_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionSetMetaData" />
+  </wsdl:message>
+  <wsdl:message name="IIntegrationService_TransactionSetMetaData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionSetMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIntegrationService">
+    <wsdl:operation name="MetaDataGetDefinition">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/MetaDataGetDefinition" message="tns:IIntegrationService_MetaDataGetDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/MetaDataGetDefinitionResponse" message="tns:IIntegrationService_MetaDataGetDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionGet">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionGet" message="tns:IIntegrationService_TransactionGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionGetResponse" message="tns:IIntegrationService_TransactionGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionGetExtended">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionGetExtended" message="tns:IIntegrationService_TransactionGetExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionGetExtendedResponse" message="tns:IIntegrationService_TransactionGetExtended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionDelete">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionDelete" message="tns:IIntegrationService_TransactionDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionDeleteResponse" message="tns:IIntegrationService_TransactionDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionFinalize">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionFinalize" message="tns:IIntegrationService_TransactionFinalize_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionFinalizeResponse" message="tns:IIntegrationService_TransactionFinalize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ScenarioLogin">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/ScenarioLogin" message="tns:IIntegrationService_ScenarioLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/ScenarioLoginResponse" message="tns:IIntegrationService_ScenarioLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrganizationDataGet">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/OrganizationDataGet" message="tns:IIntegrationService_OrganizationDataGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/OrganizationDataGetResponse" message="tns:IIntegrationService_OrganizationDataGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsumerDataGet">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/ConsumerDataGet" message="tns:IIntegrationService_ConsumerDataGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/ConsumerDataGetResponse" message="tns:IIntegrationService_ConsumerDataGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ScenarioLoginCallbackGet">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/ScenarioLoginCallbackGet" message="tns:IIntegrationService_ScenarioLoginCallbackGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/ScenarioLoginCallbackGetResponse" message="tns:IIntegrationService_ScenarioLoginCallbackGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionAddSignatureCallbackGet">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionAddSignatureCallbackGet" message="tns:IIntegrationService_TransactionAddSignatureCallbackGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionAddSignatureCallbackGetResponse" message="tns:IIntegrationService_TransactionAddSignatureCallbackGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/Login" message="tns:IIntegrationService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/LoginResponse" message="tns:IIntegrationService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCitizen">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/LoginCitizen" message="tns:IIntegrationService_LoginCitizen_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/LoginCitizenResponse" message="tns:IIntegrationService_LoginCitizen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDocumentSigning">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterDocumentSigning" message="tns:IIntegrationService_RegisterDocumentSigning_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterDocumentSigningResponse" message="tns:IIntegrationService_RegisterDocumentSigning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSigning">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetDocumentSigning" message="tns:IIntegrationService_GetDocumentSigning_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetDocumentSigningResponse" message="tns:IIntegrationService_GetDocumentSigning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDocumentSigning">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateDocumentSigning" message="tns:IIntegrationService_UpdateDocumentSigning_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateDocumentSigningResponse" message="tns:IIntegrationService_UpdateDocumentSigning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocumentSigning">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteDocumentSigning" message="tns:IIntegrationService_DeleteDocumentSigning_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteDocumentSigningResponse" message="tns:IIntegrationService_DeleteDocumentSigning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignDocumentSigning">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignDocumentSigning" message="tns:IIntegrationService_SignDocumentSigning_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignDocumentSigningResponse" message="tns:IIntegrationService_SignDocumentSigning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignDocumentSigningExtended">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignDocumentSigningExtended" message="tns:IIntegrationService_SignDocumentSigningExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignDocumentSigningExtendedResponse" message="tns:IIntegrationService_SignDocumentSigningExtended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUser">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/FindUser" message="tns:IIntegrationService_FindUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/FindUserResponse" message="tns:IIntegrationService_FindUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrganization">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/FindOrganization" message="tns:IIntegrationService_FindOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/FindOrganizationResponse" message="tns:IIntegrationService_FindOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterProcurement">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterProcurement" message="tns:IIntegrationService_RegisterProcurement_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterProcurementResponse" message="tns:IIntegrationService_RegisterProcurement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcurement">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateProcurement" message="tns:IIntegrationService_UpdateProcurement_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateProcurementResponse" message="tns:IIntegrationService_UpdateProcurement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcurement">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteProcurement" message="tns:IIntegrationService_DeleteProcurement_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteProcurementResponse" message="tns:IIntegrationService_DeleteProcurement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcurement">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetProcurement" message="tns:IIntegrationService_GetProcurement_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetProcurementResponse" message="tns:IIntegrationService_GetProcurement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterTender">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterTender" message="tns:IIntegrationService_RegisterTender_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterTenderResponse" message="tns:IIntegrationService_RegisterTender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTender">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateTender" message="tns:IIntegrationService_UpdateTender_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateTenderResponse" message="tns:IIntegrationService_UpdateTender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTender">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteTender" message="tns:IIntegrationService_DeleteTender_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteTenderResponse" message="tns:IIntegrationService_DeleteTender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignTender">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignTender" message="tns:IIntegrationService_SignTender_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignTenderResponse" message="tns:IIntegrationService_SignTender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignTenderExtended">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignTenderExtended" message="tns:IIntegrationService_SignTenderExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/SignTenderExtendedResponse" message="tns:IIntegrationService_SignTenderExtended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetTender" message="tns:IIntegrationService_GetTender_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetTenderResponse" message="tns:IIntegrationService_GetTender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenTenders">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/OpenTenders" message="tns:IIntegrationService_OpenTenders_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/OpenTendersResponse" message="tns:IIntegrationService_OpenTenders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenTendersExtended">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/OpenTendersExtended" message="tns:IIntegrationService_OpenTendersExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/OpenTendersExtendedResponse" message="tns:IIntegrationService_OpenTendersExtended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterUser" message="tns:IIntegrationService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterUserResponse" message="tns:IIntegrationService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPDFReceipt">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetPDFReceipt" message="tns:IIntegrationService_GetPDFReceipt_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/GetPDFReceiptResponse" message="tns:IIntegrationService_GetPDFReceipt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDFGetReceipt">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/PDFGetReceipt" message="tns:IIntegrationService_PDFGetReceipt_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/PDFGetReceiptResponse" message="tns:IIntegrationService_PDFGetReceipt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStart">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionStart" message="tns:IIntegrationService_TransactionStart_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionStartResponse" message="tns:IIntegrationService_TransactionStart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionAddSignature">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionAddSignature" message="tns:IIntegrationService_TransactionAddSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionAddSignatureResponse" message="tns:IIntegrationService_TransactionAddSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionSetMetaData">
+      <wsdl:input wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionSetMetaData" message="tns:IIntegrationService_TransactionSetMetaData_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionSetMetaDataResponse" message="tns:IIntegrationService_TransactionSetMetaData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIntegrationService" type="tns:IIntegrationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MetaDataGetDefinition">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/MetaDataGetDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionGet">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionGetExtended">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionGetExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionDelete">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionFinalize">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionFinalize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScenarioLogin">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/ScenarioLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrganizationDataGet">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/OrganizationDataGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsumerDataGet">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/ConsumerDataGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScenarioLoginCallbackGet">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/ScenarioLoginCallbackGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionAddSignatureCallbackGet">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionAddSignatureCallbackGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCitizen">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/LoginCitizen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDocumentSigning">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterDocumentSigning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSigning">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/GetDocumentSigning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDocumentSigning">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateDocumentSigning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocumentSigning">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteDocumentSigning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignDocumentSigning">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/SignDocumentSigning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignDocumentSigningExtended">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/SignDocumentSigningExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUser">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/FindUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrganization">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/FindOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterProcurement">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterProcurement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcurement">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateProcurement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcurement">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteProcurement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcurement">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/GetProcurement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterTender">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterTender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTender">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/UpdateTender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTender">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/DeleteTender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignTender">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/SignTender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignTenderExtended">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/SignTenderExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/GetTender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenTenders">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/OpenTenders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenTendersExtended">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/OpenTendersExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPDFReceipt">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/GetPDFReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDFGetReceipt">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/PDFGetReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStart">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionStart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionAddSignature">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionAddSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionSetMetaData">
+      <soap:operation soapAction="http://www.csign.se/integration/service/V1/IIntegrationService/TransactionSetMetaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IntegrationService">
+    <wsdl:port name="BasicHttpBinding_IIntegrationService" binding="tns:BasicHttpBinding_IIntegrationService">
+      <soap:address location="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/CSign.Services.IntegrationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

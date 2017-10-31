@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.csign.se/integration/service/V1" elementFormDefault="qualified" targetNamespace="http://www.csign.se/integration/service/V1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://integration.test.csign.se:8080/CSign.Services.Integration/IntegrationService/?xsd=xsd2" namespace="http://www.csign.se/integration/data/V1" />
+  <xs:element name="MetaDataGetDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q1:MetaDataGetDefinitionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MetaDataGetDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://www.csign.se/integration/data/V1" minOccurs="0" name="MetaDataGetDefinitionResult" nillable="true" type="q2:MetaDataGetDefinitionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q3:TransactionGetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionGetResult" nillable="true" type="q4:TransactionGetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionGetExtended">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q5:TransactionGetExtendedRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionGetExtendedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionGetExtendedResult" nillable="true" type="q6:TransactionGetExtendedResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q7:TransactionDeleteRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionDeleteResult" nillable="true" type="q8:TransactionDeleteResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionFinalize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q9:TransactionFinalizeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionFinalizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionFinalizeResult" nillable="true" type="q10:TransactionFinalizeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScenarioLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q11:ScenarioLoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScenarioLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://www.csign.se/integration/data/V1" minOccurs="0" name="ScenarioLoginResult" nillable="true" type="q12:ScenarioLoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrganizationDataGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q13:OrganizationDataGetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrganizationDataGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://www.csign.se/integration/data/V1" minOccurs="0" name="OrganizationDataGetResult" nillable="true" type="q14:OrganizationDataGetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsumerDataGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q15:ConsumerDataGetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsumerDataGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://www.csign.se/integration/data/V1" minOccurs="0" name="ConsumerDataGetResult" nillable="true" type="q16:ConsumerDataGetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScenarioLoginCallbackGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q17:ScenarioLoginCallbackGetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScenarioLoginCallbackGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://www.csign.se/integration/data/V1" minOccurs="0" name="ScenarioLoginCallbackGetResult" nillable="true" type="q18:ScenarioLoginCallbackGetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionAddSignatureCallbackGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q19:TransactionAddSignatureCallbackGetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionAddSignatureCallbackGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionAddSignatureCallbackGetResult" nillable="true" type="q20:TransactionAddSignatureCallbackGetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q21:LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://www.csign.se/integration/data/V1" minOccurs="0" name="LoginResult" nillable="true" type="q22:LoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginCitizen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q23:LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginCitizenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://www.csign.se/integration/data/V1" minOccurs="0" name="LoginCitizenResult" nillable="true" type="q24:LoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterDocumentSigning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q25:RegisterDocumentSigningRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterDocumentSigningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://www.csign.se/integration/data/V1" minOccurs="0" name="RegisterDocumentSigningResult" nillable="true" type="q26:RegisterDocumentSigningResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentSigning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q27:GetDocumentSigningRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentSigningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://www.csign.se/integration/data/V1" minOccurs="0" name="GetDocumentSigningResult" nillable="true" type="q28:GetDocumentSigningResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDocumentSigning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q29:UpdateDocumentSigningRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDocumentSigningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://www.csign.se/integration/data/V1" minOccurs="0" name="UpdateDocumentSigningResult" nillable="true" type="q30:UpdateDocumentSigningResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocumentSigning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q31:DeleteDocumentSigningRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocumentSigningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://www.csign.se/integration/data/V1" minOccurs="0" name="DeleteDocumentSigningResult" nillable="true" type="q32:DeleteDocumentSigningResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignDocumentSigning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q33:SignDocumentSigningRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignDocumentSigningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://www.csign.se/integration/data/V1" minOccurs="0" name="SignDocumentSigningResult" nillable="true" type="q34:SignDocumentSigningResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignDocumentSigningExtended">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q35:SignDocumentSigningExtendedRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignDocumentSigningExtendedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://www.csign.se/integration/data/V1" minOccurs="0" name="SignDocumentSigningExtendedResult" nillable="true" type="q36:SignDocumentSigningExtendedResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q37:FindUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://www.csign.se/integration/data/V1" minOccurs="0" name="FindUserResult" nillable="true" type="q38:FindUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindOrganization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q39:FindOrganizationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindOrganizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://www.csign.se/integration/data/V1" minOccurs="0" name="FindOrganizationResult" nillable="true" type="q40:FindOrganizationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterProcurement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q41:RegisterProcurementRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterProcurementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://www.csign.se/integration/data/V1" minOccurs="0" name="RegisterProcurementResult" nillable="true" type="q42:RegisterProcurementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProcurement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q43:UpdateProcurementRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProcurementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://www.csign.se/integration/data/V1" minOccurs="0" name="UpdateProcurementResult" nillable="true" type="q44:UpdateProcurementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProcurement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q45:DeleteProcurementRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProcurementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://www.csign.se/integration/data/V1" minOccurs="0" name="DeleteProcurementResult" nillable="true" type="q46:DeleteProcurementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcurement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q47:GetProcurementRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcurementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://www.csign.se/integration/data/V1" minOccurs="0" name="GetProcurementResult" nillable="true" type="q48:GetProcurementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterTender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q49:RegisterTenderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterTenderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://www.csign.se/integration/data/V1" minOccurs="0" name="RegisterTenderResult" nillable="true" type="q50:RegisterTenderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q51:UpdateTenderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTenderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://www.csign.se/integration/data/V1" minOccurs="0" name="UpdateTenderResult" nillable="true" type="q52:UpdateTenderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q53:DeleteTenderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTenderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://www.csign.se/integration/data/V1" minOccurs="0" name="DeleteTenderResult" nillable="true" type="q54:DeleteTenderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignTender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q55:SignTenderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignTenderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://www.csign.se/integration/data/V1" minOccurs="0" name="SignTenderResult" nillable="true" type="q56:SignTenderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignTenderExtended">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q57:SignTenderExtendedRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignTenderExtendedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://www.csign.se/integration/data/V1" minOccurs="0" name="SignTenderExtendedResult" nillable="true" type="q58:SignTenderExtendedResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q59:GetTendersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://www.csign.se/integration/data/V1" minOccurs="0" name="GetTenderResult" nillable="true" type="q60:GetTendersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTenders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q61:OpenTendersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTendersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://www.csign.se/integration/data/V1" minOccurs="0" name="OpenTendersResult" nillable="true" type="q62:OpenTendersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTendersExtended">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q63:OpenTendersExtendedRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTendersExtendedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://www.csign.se/integration/data/V1" minOccurs="0" name="OpenTendersExtendedResult" nillable="true" type="q64:OpenTendersExtendedResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q65:RegisterUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://www.csign.se/integration/data/V1" minOccurs="0" name="RegisterUserResult" nillable="true" type="q66:RegisterUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPDFReceipt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q67:GetReceiptRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPDFReceiptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://www.csign.se/integration/data/V1" minOccurs="0" name="GetPDFReceiptResult" nillable="true" type="q68:GetReceiptResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDFGetReceipt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q69:GetPDFReceiptRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDFGetReceiptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://www.csign.se/integration/data/V1" minOccurs="0" name="PDFGetReceiptResult" nillable="true" type="q70:GetPDFResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionStart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q71:TransactionStartRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionStartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionStartResult" nillable="true" type="q72:TransactionStartResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionAddSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q73:TransactionAddSignatureRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionAddSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionAddSignatureResult" nillable="true" type="q74:TransactionAddSignatureResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionSetMetaData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://www.csign.se/integration/data/V1" minOccurs="0" name="request" nillable="true" type="q75:TransactionSetMetaDataRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionSetMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://www.csign.se/integration/data/V1" minOccurs="0" name="TransactionSetMetaDataResult" nillable="true" type="q76:TransactionSetMetaDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
